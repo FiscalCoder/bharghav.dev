@@ -44,6 +44,7 @@ function addID(node: UnistNodeType, nodes: Record<string, number>, sluggerInstan
   let id = nodes[originalSlug] > 1 ? `${originalSlug}-${nodes[originalSlug]}` : originalSlug
 
   node.data = node.data || {}
+  // @ts-ignore
   node.data.hProperties = node.data.hProperties || {}
   // @ts-ignore
   node.data.hProperties.id = id

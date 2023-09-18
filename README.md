@@ -29,8 +29,6 @@ A few major over-engineering-changes from the original repo:
 - 📥 Bumping up `mdx-bundler`, `rehype`/`remark` plugins and dependencies to the latest version
 - 📦 Adopting Bun.sh as package manager and runtime, replacing npm and node.
 
-_This blog have a legacy version built with **Gatsby** which can be found [here](https://leo-blog-legacy.vercel.app/)_.
-
 ## Assets
 
 The images in this blog are from [Unsplash](https://unsplash.com/), gifs from [GIPHY](https://giphy.com/), and illustrations are from [Storyset](https://storyset.com/).

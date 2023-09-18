@@ -3,8 +3,10 @@ import { fetcher } from '~/utils/fetcher'
 let { default: useSWR } = require('swr')
 
 export function SpotifyNowPlaying() {
-  let response = useSWR('/api/spotify', fetcher)
-  let { songUrl, title, artist } = (response.data as SpotifyNowPlayingData) || {}
+  // let response = useSWR('/api/spotify', fetcher)
+  let { songUrl = '', title = '', artist = '' } = {}
+
+  // (response.data as SpotifyNowPlayingData) ||
 
   return (
     <div className="flex items-center bg-gray-900 px-3 py-2 xl:px-6">
