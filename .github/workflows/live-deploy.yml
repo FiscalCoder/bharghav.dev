@@ -1,0 +1,65 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: padmavathi live deployment
+
+on: workflow_dispatch
+
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: self-hosted
+
+    strategy:
+      matrix:
+        file_path: [/../var/www/vhosts/bharghav.dev/httpdocs/blog-app]
+        pm2_process_name: bharghav_dev_live
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      - uses: oven-sh/setup-bun@v1
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.16.0'
+
+      # Check Node Version
+      - name: Checking node version...
+        run: node -v
+
+      # Install Dependencies
+      - name: Installing Dependencies...
+        run: bun install
+
+      # building next
+      - name: Taking build...
+        run: bun run build
+
+      # Check if frontend folder is present and delete it
+      - name: Deleting frontend folder...
+        run: if [ -d "${{ matrix.file_path }}" ]; then rm -Rf "${{ matrix.file_path }}"; fi
+
+      # Create a new frontend folder
+      - name: Creating a new frontend folder...
+        run: mkdir "${{ matrix.file_path }}"
+
+      # Copy the latest package from the current directory to frontend folder
+      - name: copy package...
+        run: cp -r . "${{ matrix.file_path }}"
+
+      - name: Check and Start PM2 Process if not available
+        run: |
+          if ! sudo pm2 describe ${{ matrix.pm2_process_name }} > /dev/null; then
+            cd "${{ matrix.file_path }}"
+            sudo pm2 start "bun run serve" --name "${{ matrix.pm2_process_name }}"
+          fi
+
+      # Restart pm2 process and gets logs
+      - name: Restarting the server Getting Logs...
+        run: |
+            sudo -E pm2 restart ${{ env.pm2_process_name }} --update-env
+            sleep 1
+            pm2 logs ${{ env.pm2_process_name }} --out --nostream --lines=25

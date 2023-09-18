@@ -34,10 +34,10 @@ export let commentConfig = {
   provider: 'giscus', // 'giscus' | 'utterances' | 'disqus',
   // https://giscus.app/
   giscusConfig: {
-    repo: '', // process.env.GISCUS_REPO
-    repositoryId: '', // process.env.GISCUS_REPOSITORY_ID
-    category: '', // process.env.GISCUS_CATEGORY
-    categoryId: '', // process.env.GISCUS_CATEGORY_ID
+    repo: process.env.GISCUS_REPO, // process.env.GISCUS_REPO
+    repositoryId: process.env.GISCUS_REPOSITORY_ID, // process.env.GISCUS_REPOSITORY_ID
+    category: process.env.GISCUS_REPOSITORY_ID, // process.env.GISCUS_CATEGORY
+    categoryId: process.env.GISCUS_CATEGORY_ID, // process.env.GISCUS_CATEGORY_ID
     mapping: 'title',
     reactions: '1',
     metadata: '0',

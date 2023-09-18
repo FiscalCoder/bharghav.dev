@@ -14,7 +14,6 @@ import Spotify from '~/icons/spotify.svg'
 import TailwindCSS from '~/icons/tailwind.svg'
 import Typescript from '~/icons/typescript.svg'
 import Umami from '~/icons/umami.svg'
-import Vercel from '~/icons/vercel.svg'
 
 export let BrandIconsMap = {
   React,
@@ -31,7 +30,6 @@ export let BrandIconsMap = {
   TailwindCSS,
   Prisma,
   Umami,
-  Vercel,
   Railway,
   Spotify,
 }
