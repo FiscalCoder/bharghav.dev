@@ -7,7 +7,7 @@ app = "bharghav-dev"
 primary_region = "sin"
 
 [build]
-image = "Dockerfile"
+dockerfile = "Dockerfile"
 
 [http_service]
   internal_port = 3050
