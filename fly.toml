@@ -1,0 +1,18 @@
+# fly.toml app configuration file generated for bharghav-dev on 2023-10-02T15:32:37+05:30
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "bharghav-dev"
+primary_region = "sin"
+
+[build]
+image = "Dockerfile"
+
+[http_service]
+  internal_port = 3050
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]

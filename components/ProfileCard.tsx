@@ -12,10 +12,10 @@ export function ProfileCard() {
 
   const imageUrls = [
     '/static/images/logo.jpeg',
-    '/static/images/carousel_pic_1.jpg',
-    '/static/images/carousel_pic_2.jpg',
-    '/static/images/carousel_pic_3.jpg',
-    '/static/images/carousel_pic_4.jpg',
+    // '/static/images/carousel_pic_1.jpg',
+    // '/static/images/carousel_pic_2.jpg',
+    // '/static/images/carousel_pic_3.jpg',
+    // '/static/images/carousel_pic_4.jpg',
   ]
 
   useEffect(() => {

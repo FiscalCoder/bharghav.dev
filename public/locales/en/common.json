@@ -1,10 +1,10 @@
 {
   "site_meta_data": {
-    "title": "Bharghav's Blog - Coding and Adventures",
+    "title": "Bharghav's Blog",
     "author": "Bharghav",
     "full_name": "Bharghav",
-    "header_title": "Bharghav's Blog - Coding and Adventures",
-    "footer_title": "Bharghav's Blog - Coding and Adventures",
+    "header_title": "Bharghav's Blog",
+    "footer_title": "Bharghav's Blog",
     "description": "Bharghav's coding journey - Work and life stories through the keyboard of an open-minded Software Engineer",
     "language": "en"
   },
@@ -68,7 +68,7 @@
   "build_with": {
     "built_with": "Built with",
     "view_source": "View source",
-    "copyright_author": "Bharghav's Blog - Coding and Adventures"
+    "copyright_author": "Bharghav's Blog"
   },
   "projects": {
     "projects_description": "My open-source side projects and creations, including work and personal endeavors",

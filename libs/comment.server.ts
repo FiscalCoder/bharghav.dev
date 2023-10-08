@@ -1,6 +1,6 @@
 import type { CommentConfigType } from '~/types/components'
 import { commentConfig as DefaultCommentConfig } from '~/data/siteMetadata'
-
+import { commentConfig } from '~/data/siteMetadata'
 // This is a temporary workaround for the fact that the `mdx-bundler` & `esbuild`
 // is not working with the NextJS's public variables.
 export function getCommentConfigs(): CommentConfigType {
@@ -8,10 +8,10 @@ export function getCommentConfigs(): CommentConfigType {
     ...DefaultCommentConfig,
     giscusConfig: {
       ...DefaultCommentConfig.giscusConfig,
-      repo: process.env.GISCUS_REPO || null,
-      repositoryId: process.env.GISCUS_REPOSITORY_ID || null,
-      category: process.env.GISCUS_CATEGORY || null,
-      categoryId: process.env.GISCUS_CATEGORY_ID || null,
+      repo: commentConfig.giscusConfig.repo || null,
+      repositoryId: commentConfig.giscusConfig.repositoryId || null,
+      category: commentConfig.giscusConfig.category || null,
+      categoryId: commentConfig.giscusConfig.categoryId || null,
     },
     utterancesConfig: {
       ...DefaultCommentConfig.utterancesConfig,
