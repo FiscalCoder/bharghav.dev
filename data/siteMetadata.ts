@@ -9,11 +9,11 @@ export let siteMetadata = {
   x: 'https://x.com/byte_panache',
   linkedin: 'https://www.linkedin.com/in/bharghav-r/',
   locale: 'en-US',
-  analyticsURL: '',
+  analyticsURL: 'https://analytics.bharghav.dev/share/IhCTvbh7XjTBxCLk/Personal',
   analytics: {
     plausibleDataDomain: '',
     simpleAnalytics: false, // true | false
-    umamiWebsiteId: '2df62ae5-7f13-455b-8e54-c15b96ff2b8b',
+    umamiWebsiteId: 'b479f7bb-f9b5-43ec-92c5-9d5008bb6cf0',
     googleAnalyticsId: '', // e.g. UA-000000-2 or G-XXXXXXX
   },
   socialAccounts: {

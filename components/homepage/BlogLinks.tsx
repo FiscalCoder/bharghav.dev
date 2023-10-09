@@ -8,6 +8,7 @@ export function BlogLinks() {
 
   return (
     <div className="flex flex-col space-y-1.5">
+      <h2 className="text-lg font-semibold mb-3">Explore Further</h2> {/* Added heading */}
       <Link href="/projects" className="hover:underline">
         <Twemoji emoji="hammer-and-wrench" />
         <span data-umami-event="home-link-projects" className="ml-1.5">
