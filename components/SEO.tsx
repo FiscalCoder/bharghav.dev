@@ -87,6 +87,7 @@ export function BlogSeo(props: BlogSeoProps) {
     <>
       <Head>
         <title>{`${title}`}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="follow, index" />
         <meta name="description" content={summary} />
         <meta property="og:url" content={`${siteMetadata.siteUrl}${router.asPath}`} />
