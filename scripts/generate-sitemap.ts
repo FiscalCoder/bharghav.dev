@@ -25,6 +25,7 @@ let SITE_URL = 'https://www.bharghav.dev'
               .replace('pages/', '/')
               .replace('data/blog', '/blog')
               .replace('public/', '/')
+              .replace('.tsx', '')
               .replace('.ts', '')
               .replace('.mdx', '')
               .replace('.md', '')
