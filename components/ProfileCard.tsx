@@ -1,75 +1,68 @@
+import { clsx } from 'clsx'
 import { useTranslation } from 'next-i18next'
 import Image from 'next/image'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { ProfileCardInfo } from './ProfileInfo'
 import { SpotifyNowPlaying } from './SpotifyNowPlaying'
 
 export function ProfileCard() {
-  const { t } = useTranslation('common')
-  const cardRef = useRef(null)
-  const [isZoomed, setIsZoomed] = useState(false)
-  const [imageIndex, setImageIndex] = useState(0)
+  let ref = useRef(null)
+  let { t } = useTranslation('common')
+  let [style, setStyle] = useState<React.CSSProperties>({})
 
-  const imageUrls = [
-    '/static/images/logo.jpeg',
-    // '/static/images/carousel_pic_1.jpg',
-    // '/static/images/carousel_pic_2.jpg',
-    // '/static/images/carousel_pic_3.jpg',
-    // '/static/images/carousel_pic_4.jpg',
-  ]
+  let onMouseMove = useCallback((e: MouseEvent) => {
+    if (!ref.current || window.innerWidth < 1280) return
+
+    let { clientX, clientY } = e
+    let { width, height, x, y } = ref.current.getBoundingClientRect()
+    let mouseX = Math.abs(clientX - x)
+    let mouseY = Math.abs(clientY - y)
+    let rotateMin = -15
+    let rotateMax = 15
+    let rotateRange = rotateMax - rotateMin
+
+    let rotate = {
+      x: rotateMax - (mouseY / height) * rotateRange,
+      y: rotateMin + (mouseX / width) * rotateRange,
+    }
+
+    setStyle({
+      transform: `rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`,
+    })
+  }, [])
+
+  let onMouseLeave = useCallback(() => {
+    setStyle({ transform: 'rotateX(0deg) rotateY(0deg)' })
+  }, [])
 
   useEffect(() => {
-    const card = cardRef.current
-
-    const handleMouseEnter = () => {
-      if (!card) return
-      setIsZoomed(true)
-    }
-
-    const handleMouseMove = (e) => {
-      if (!card || !isZoomed) return
-
-      const { width, height, left, top } = card.getBoundingClientRect()
-      const { clientX, clientY } = e
-      const centerX = width / 2
-      const centerY = height / 2
-      const mouseX = clientX - left - centerX
-      const mouseY = clientY - top - centerY
-
-      // Adjust the rotation calculation based on mouseY and mouseX
-      const rotateX = (mouseY / centerY) * 15
-      const rotateY = (mouseX / centerX) * 15
-
-      card.style.transform = `scale(1.2) rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`
-    }
-
-    const handleMouseLeave = () => {
-      if (!card) return
-      setIsZoomed(false)
-      card.style.transform = 'scale(1) rotateX(0deg) rotateY(0deg)'
-    }
-
-    card.addEventListener('mouseenter', handleMouseEnter)
-    card.addEventListener('mousemove', handleMouseMove)
-    card.addEventListener('mouseleave', handleMouseLeave)
-
-    const imageChangeInterval = setInterval(() => {
-      setImageIndex((prevIndex) => (prevIndex + 1) % imageUrls.length)
-    }, 2000)
-
+    let { current } = ref
+    if (!current) return
+    current.addEventListener('mousemove', onMouseMove)
+    current.addEventListener('mouseleave', onMouseLeave)
     return () => {
-      clearInterval(imageChangeInterval)
-      card.removeEventListener('mouseenter', handleMouseEnter)
-      card.removeEventListener('mousemove', handleMouseMove)
-      card.removeEventListener('mouseleave', handleMouseLeave)
+      if (!current) return
+      current.removeEventListener('mousemove', onMouseMove)
+      current.removeEventListener('mouseleave', onMouseLeave)
     }
-  }, [isZoomed, imageUrls.length])
+  }, [onMouseLeave, onMouseMove])
 
   return (
-    <div className={`z-10 mb-8 profile-card ${isZoomed ? 'zoomed' : ''}`} ref={cardRef}>
-      <div className="flex flex-col overflow-hidden xl:rounded-lg bg-white shadow-demure dark:bg-dark dark:shadow-mondegreen outline outline-1 outline-gray-100 dark:outline-gray-600">
+    <div
+      className="z-10 mb-8 scale-100 transition-all duration-200 ease-out hover:z-50 xl:mb-0 xl:hover:scale-[1.15]"
+      style={{ perspective: '600px' }}
+      ref={ref}
+    >
+      <div
+        style={style}
+        className={clsx(
+          'flex flex-col overflow-hidden transition-all duration-200 ease-out xl:rounded-lg',
+          'bg-white shadow-demure dark:bg-dark dark:shadow-mondegreen',
+          'outline outline-1 outline-gray-100 dark:outline-gray-600'
+        )}
+      >
         <Image
-          src={imageUrls[imageIndex]}
+          src={'/static/images/logo.jpeg'}
           alt={t('avatar_description')}
           width={550}
           height={350}
@@ -79,7 +72,6 @@ export function ProfileCard() {
             width: '100%',
             aspectRatio: '17/11',
           }}
-          priority
         />
         <SpotifyNowPlaying />
         <ProfileCardInfo />
