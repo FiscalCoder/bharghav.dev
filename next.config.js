@@ -2,9 +2,10 @@ let path = require('path')
 let withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
-let { i18n } = require('./next-i18next.config')
+const withPWA = require('next-pwa')
 
-module.exports = withBundleAnalyzer({
+let { i18n } = require('./next-i18next.config')
+const nextJsConfig = {
   reactStrictMode: true,
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   eslint: {
@@ -43,4 +44,13 @@ module.exports = withBundleAnalyzer({
 
     return config
   },
-})
+}
+
+const pwaConfig = {
+  dest: 'public',
+  disable: process.env.NODE_ENV === 'development',
+  register: true,
+  skipWaiting: true,
+}
+
+module.exports = { ...withBundleAnalyzer(nextJsConfig), ...withPWA(pwaConfig) }

@@ -15,6 +15,9 @@ function App({ Component, pageProps }) {
     <ThemeProvider attribute="class">
       <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="/static/favicons/icon-192x192.png"></link>
+        <meta name="theme-color" content="#000000" />
       </Head>
       <Analytics />
       <LayoutWrapper>
