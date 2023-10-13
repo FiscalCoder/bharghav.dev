@@ -1,7 +1,7 @@
 {
-  "name": "Your Blog's Name",
-  "short_name": "Blog",
-  "description": "A description of your blog",
+  "name": "Bharghav's Portfolio",
+  "short_name": "Fiscal Coder",
+  "description": "Cruise through Bharghav's Portfolio to delve into insightful pieces on web development and tech-centric themes. Occasionally, embark on a journey with him as he shares tales from his personal adventures.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
