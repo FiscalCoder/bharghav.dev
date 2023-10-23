@@ -11,7 +11,7 @@ collections:
     label: "Blog Posts"
     folder: "data/en/blog"
     create: true
-    slug: "{{slugify title}}" # Use title as slug, replacing spaces with dashes
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Date", name: "date", widget: "datetime"}
@@ -25,4 +25,3 @@ collections:
   # Add other collections (snippets, etc.) based on your needs and directory structure.
 
 publish_mode: editorial_workflow
-local_backend: true
