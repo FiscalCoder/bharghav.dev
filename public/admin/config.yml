@@ -1,5 +1,6 @@
 backend:
   name: git-gateway
+  branch: main
 
 media_folder: "public/static" # Media files will be stored under public/static
 public_folder: "/static"     # The src attribute for uploaded media will start with /static
