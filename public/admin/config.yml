@@ -1,6 +1,7 @@
 backend:
   name: git-gateway
   branch: main
+  repo: FiscalCoder/bharghav.dev
 
 media_folder: "public/static" # Media files will be stored under public/static
 public_folder: "/static"     # The src attribute for uploaded media will start with /static
@@ -24,3 +25,4 @@ collections:
   # Add other collections (snippets, etc.) based on your needs and directory structure.
 
 publish_mode: editorial_workflow
+local_backend: true
