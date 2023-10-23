@@ -1,0 +1,25 @@
+backend:
+  name: git-gateway
+
+media_folder: "public/static" # Media files will be stored under public/static
+public_folder: "/static"     # The src attribute for uploaded media will start with /static
+
+collections:
+  - name: "blog" 
+    label: "Blog Posts"
+    folder: "data/en/blog"
+    create: true
+    slug: "{{slugify title}}" # Use title as slug, replacing spaces with dashes
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false}
+      - {label: "Summary", name: "summary", widget: "text"}
+      - {label: "Images", name: "images", widget: "list", field: {name: "img", label: "Image", widget: "image"}}
+      - {label: "Authors", name: "authors", widget: "list", field: {name: "label", label: "Author", widget: "string"}}
+      - {label: "Content", name: "body", widget: "markdown"}
+
+  # Add other collections (snippets, etc.) based on your needs and directory structure.
+
+publish_mode: editorial_workflow
