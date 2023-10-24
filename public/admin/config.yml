@@ -3,15 +3,17 @@ backend:
   branch: main
   repo: FiscalCoder/bharghav.dev
 
-media_folder: "public/static" # Media files will be stored under public/static
-public_folder: "/static"     # The src attribute for uploaded media will start with /static
+media_folder: "public/static/images" # Media files will be stored under public/static
+public_folder: "/static/images"     # The src attribute for uploaded media will start with /static
 
 collections:
-  - name: "blog" 
-    label: "Blog Posts"
+  - name: "blog-mdx"
+    label: "Blog Posts (MDX)"
     folder: "data/en/blog"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
+    extension: mdx
+    format: "frontmatter"
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Date", name: "date", widget: "datetime"}
@@ -22,6 +24,56 @@ collections:
       - {label: "Authors", name: "authors", widget: "list", field: {name: "label", label: "Author", widget: "string"}}
       - {label: "Content", name: "body", widget: "markdown"}
 
-  # Add other collections (snippets, etc.) based on your needs and directory structure.
+  - name: "blog-md"
+    label: "Blog Posts (MD)"
+    folder: "data/en/blog"
+    create: true
+    slug: "{{slug}}"
+    format: "frontmatter"
+    extension: md
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false}
+      - {label: "Summary", name: "summary", widget: "text"}
+      - {label: "Images", name: "images", widget: "list", field: {name: "img", label: "Image", widget: "image"}}
+      - {label: "Authors", name: "authors", widget: "list", field: {name: "label", label: "Author", widget: "string"}}
+      - {label: "Content", name: "body", widget: "markdown"}
+
+  - name: "snippets-md"
+    label: "Snippets (MD)"
+    folder: "data/en/snippets"
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: "frontmatter"
+    fields:
+      - {label: "Heading", name: "heading", widget: "string"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Type", name: "type", widget: "string"}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false}
+      - {label: "Summary", name: "summary", widget: "text"}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Content", name: "body", widget: "markdown"}
+
+  - name: "snippets-mdx"
+    label: "Snippets (MDX)"
+    folder: "data/en/snippets"
+    create: true
+    slug: "{{slug}}"
+    extension: mdx
+    format: "frontmatter"
+    fields:
+      - {label: "Heading", name: "heading", widget: "string"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Type", name: "type", widget: "string"}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false}
+      - {label: "Summary", name: "summary", widget: "text"}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Content", name: "body", widget: "markdown"}
+
 
 publish_mode: editorial_workflow
