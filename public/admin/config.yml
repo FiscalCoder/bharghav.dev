@@ -16,7 +16,7 @@ collections:
     format: "frontmatter"
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "string", pattern: ["^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$", "Must be in YYYY-MM-DD format with valid month and day"]}
+      - {label: "Date", name: "date", widget: "string", pattern: ["^'\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])'$", "Must be in 'YYYY-MM-DD' format with valid month and day enclosed in single quotes"]}
       - {label: "Tags", name: "tags", widget: "list", default: [], allow_add: true, field: {label: "Tag", name: "tag", widget: "string"}}
       - {label: "Draft", name: "draft", widget: "boolean", default: false}
       - {label: "Summary", name: "summary", widget: "text"}
@@ -33,7 +33,7 @@ collections:
     extension: md
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "string", pattern: ["^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$", "Must be in YYYY-MM-DD format with valid month and day"]}
+      - {label: "Date", name: "date", widget: "string", pattern: ["^'\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])'$", "Must be in 'YYYY-MM-DD' format with valid month and day enclosed in single quotes"]}
       - {label: "Tags", name: "tags", widget: "list", default: [], allow_add: true, field: {label: "Tag", name: "tag", widget: "string"}}
       - {label: "Draft", name: "draft", widget: "boolean", default: false}
       - {label: "Summary", name: "summary", widget: "text"}
@@ -51,7 +51,7 @@ collections:
     fields:
       - {label: "Heading", name: "heading", widget: "string"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "string", pattern: ["^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$", "Must be in YYYY-MM-DD format with valid month and day"]}
+      - {label: "Date", name: "date", widget: "string", pattern: ["^'\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])'$", "Must be in 'YYYY-MM-DD' format with valid month and day enclosed in single quotes"]}
       - {label: "Type", name: "type", widget: "string"}
       - {label: "Draft", name: "draft", widget: "boolean", default: false}
       - {label: "Summary", name: "summary", widget: "text"}
@@ -68,7 +68,7 @@ collections:
     fields:
       - {label: "Heading", name: "heading", widget: "string"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "string", pattern: ["^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$", "Must be in YYYY-MM-DD format with valid month and day"]}
+      - {label: "Date", name: "date", widget: "string", pattern: ["^'\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])'$", "Must be in 'YYYY-MM-DD' format with valid month and day enclosed in single quotes"]}
       - {label: "Type", name: "type", widget: "string"}
       - {label: "Draft", name: "draft", widget: "boolean", default: false}
       - {label: "Summary", name: "summary", widget: "text"}
