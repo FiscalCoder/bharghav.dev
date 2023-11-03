@@ -75,5 +75,114 @@ collections:
       - {label: "Tags", name: "tags", widget: "list", default: [], allow_add: true, field: {label: "Tag", name: "tag", widget: "string"}}
       - {label: "Content", name: "body", widget: "markdown"}
 
+  - name: "authors-mdx"
+    label: "Authors (MDX)"
+    folder: "data/en/authors"
+    create: true
+    slug: "{{slug}}"
+    extension: mdx
+    format: "frontmatter"
+    fields:
+      - {label: "Name", name: "layout", widget: "string"}
+      - {label: "Avatar", name: "avatar", widget: "string"}
+      - {label: "Occupation", name: "occupation", widget: "string"}
+      - {label: "Email", name: "email", widget: "string"}
+      - {label: "Markdown Content", name: "body", widget: "markdown"}
+  
+  - name: "common"
+    label: "Meta Data"
+    files:
+      - file: "public/locales/en/common.json"
+        label: "Edit Meta Data"
+        name: "common-json"
+        editor:
+          preview: false
+        fields:
+          - {label: "Site Meta Data", name: "site_meta_data", widget: "object", fields: [
+              {label: "Title", name: "title", widget: "string"},
+              {label: "Author", name: "author", widget: "string"},
+              {label: "Full Name", name: "full_name", widget: "string"},
+              {label: "Header Title", name: "header_title", widget: "string"},
+              {label: "Footer Title", name: "footer_title", widget: "string"},
+              {label: "Description", name: "description", widget: "string"},
+              {label: "Language", name: "language", widget: "hidden"},
+            ]}
+          - {label: "Happy Reading", name: "happy_reading", widget: "string"}
+          - {label: "Menu Blog", name: "menu_blog", widget: "string"}
+          - {label: "Menu Snippets", name: "menu_snippets", widget: "string"}
+          - {label: "Menu Projects", name: "menu_projects", widget: "string"}
+          - {label: "Menu About", name: "menu_about", widget: "string"}
+          - {label: "Menu Resume", name: "menu_resume", widget: "string"}
+          - {label: "Greeting Message", name: "greeting_message", widget: "string"}
+          - {label: "Introduction", name: "introduction", widget: "string"}
+          - {label: "Name", name: "name", widget: "string"}
+          - {label: "Description", name: "description", widget: "string"}
+          - {label: "Location", name: "location", widget: "string"}
+          - {label: "Bio 1", name: "bio_1", widget: "string"}
+          - {label: "Bio 2", name: "bio_2", widget: "string"}
+          - {label: "Bio 3", name: "bio_3", widget: "string"}
+          - {label: "Bio 4", name: "bio_4", widget: "string"}
+          - {label: "Bio 5", name: "bio_5", widget: "string"}
+          - {label: "Bio 6", name: "bio_6", widget: "string"}
+          - {label: "Bio 7", name: "bio_7", widget: "string"}
+          - {label: "Bio 8", name: "bio_8", widget: "string"}
+          - {label: "Bio 9", name: "bio_9", widget: "string"}
+          - {label: "Bio 10", name: "bio_10", widget: "string"}
+          - {label: "Bio 11", name: "bio_11", widget: "string"}
+          - {label: "Bio 12", name: "bio_12", widget: "string"}
+          - {label: "Bio Start Coding", name: "bio_start_coding", widget: "string"}
+          - {label: "Bio First Job", name: "bio_first_job", widget: "string"}
+          - {label: "Bio Passion", name: "bio_passion", widget: "string"}
+          - {label: "Bio Blog Purpose", name: "bio_blog_purpose", widget: "string"}
+          - {label: "Menu Blog 2", name: "menu_blog_2", widget: "string"}
+          - {label: "Menu Snippets 2", name: "menu_snippets_2", widget: "string"}
+          - {label: "Menu Projects 2", name: "menu_projects_2", widget: "string"}
+          - {label: "Menu About 2", name: "menu_about_2", widget: "string"}
+          - {label: "Menu Resume 2", name: "menu_resume_2", widget: "string"}
+          - {label: "Analytics", name: "analytics", widget: "string"}
+          - {label: "Avatar Description", name: "avatar_description", widget: "string"}
+          - {label: "Name Position", name: "name_position", widget: "string"}
+          - {label: "Description Position", name: "description_position", widget: "string"}
+          - {label: "Lost Message", name: "lost_message", widget: "string"}
+          - {label: "Return Message", name: "return_message", widget: "string"}
+          - {label: "Back Button", name: "back_button", widget: "hidden"}
+          - {label: "Year", name: "year", widget: "hidden"}
+          - {label: "Month", name: "month", widget: "hidden"}
+          - {label: "Day", name: "day", widget: "hidden"}
+          - {label: "Build With", name: "build_with", widget: "hidden", fields: [
+              {label: "Built With", name: "built_with", widget: "hidden"},
+              {label: "View Source", name: "view_source", widget: "hidden"},
+              {label: "Copyright Author", name: "copyright_author", widget: "string"},
+            ]}
+          - {label: "Projects", name: "projects", widget: "object", fields: [
+              {label: "Projects Description", name: "projects_description", widget: "string"},
+              {label: "Projects Title", name: "projects_title", widget: "string"},
+              {label: "Work Title", name: "work_title", widget: "string"},
+              {label: "Side Title", name: "side_title", widget: "string"},
+              {label: "Learn More", name: "learn_more", widget: "string"},
+              {label: "Built With", name: "built_with", widget: "string"},
+            ]}
+          - {label: "Pagination", name: "pagination", widget: "hidden", fields: [
+              {label: "Previous", name: "previous", widget: "hidden"},
+              {label: "Next", name: "next", widget: "hidden"},
+              {label: "Of", name: "of", widget: "hidden"},
+            ]}
+          - {label: "Tag", name: "tag", widget: "hidden", fields: [
+              {label: "No Tags Found", name: "no_tags_found", widget: "hidden"},
+            ]}
+    
+    # - name: "authors-md"
+    #   label: "Authors (MD)"
+    #   folder: "data/en/authors"
+    #   create: true
+    #   slug: "{{slug}}"
+    #   extension: md
+    #   format: "frontmatter"
+    #   fields:
+    #     - {label: "Name", name: "name", widget: "string"}
+    #     - {label: "Avatar", name: "avatar", widget: "string"}
+    #     - {label: "Occupation", name: "occupation", widget: "string"}
+    #     - {label: "Email", name: "email", widget: "string"}
+    #     - {label: "Markdown Content", name: "body", widget: "markdown"}
 
 publish_mode: editorial_workflow
