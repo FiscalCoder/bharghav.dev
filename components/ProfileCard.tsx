@@ -49,7 +49,7 @@ export function ProfileCard() {
 
   return (
     <div
-      className="z-10 mb-8 scale-100 transition-all duration-200 ease-out hover:z-50 xl:mb-0 xl:hover:scale-[1.15]"
+      className="z-10 mb-8 scale-100 transition-all duration-200 ease-out hover:z-50 xl:mb-0 xl:hover:scale-[1.15] transition-opacity duration-500"
       style={{ perspective: '600px' }}
       ref={ref}
     >
@@ -58,7 +58,8 @@ export function ProfileCard() {
         className={clsx(
           'flex flex-col overflow-hidden transition-all duration-200 ease-out xl:rounded-lg',
           'bg-white shadow-demure dark:bg-dark dark:shadow-mondegreen',
-          'outline outline-1 outline-gray-100 dark:outline-gray-600'
+          'outline outline-1 outline-gray-100 dark:outline-gray-600',
+          'fade-in'
         )}
       >
         <Image

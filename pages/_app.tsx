@@ -8,6 +8,7 @@ import { ThemeProvider } from 'next-themes'
 import Head from 'next/head'
 import { Analytics } from '~/components/analytics'
 import { LayoutWrapper } from '~/components/LayoutWrapper'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 function App({ Component, pageProps }) {
   return (
@@ -16,10 +17,11 @@ function App({ Component, pageProps }) {
       <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="apple-touch-icon" href="/static/favicons/icon-192x192.png"></link>
+        <link rel="apple-touch-icon" href="/static/favicons/android-chrome-192x192.png"></link>
         <meta name="theme-color" content="#000000" />
       </Head>
       <Analytics />
+      <SpeedInsights />
       <LayoutWrapper>
         <Component {...pageProps} />
       </LayoutWrapper>

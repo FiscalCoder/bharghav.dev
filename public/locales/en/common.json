@@ -28,12 +28,12 @@
   "lost_message": "Hmm... it seems that you're lost",
   "description_position": "Techie | Investor | Foodie",
   "site_meta_data": {
-    "title": "Bharghav's Blo",
+    "title": "Fiscal Coder",
     "author": "Bharghav",
     "full_name": "Bharghav",
-    "header_title": "Bharghav's Blog",
-    "footer_title": "Bharghav's Blog",
-    "description": "Bharghav's coding journey - Work and life stories through the keyboard of an open-minded Software Engineer",
+    "header_title": "Fiscal Coder",
+    "footer_title": "Fiscal Coder",
+    "description": "Unleashing Innovation in Every Line of Code! Explore the dynamic world of JS/TS technologies and groundbreaking eCommerce solutions. From coding prowess to cutting-edge projects, it's all about pushing boundaries and shaping the digital landscape",
     "language": "en"
   },
   "happy_reading": "Happy reading",
@@ -50,7 +50,7 @@
   "build_with": {
     "built_with": "Built with",
     "view_source": "View source",
-    "copyright_author": "Bharghav's Blog"
+    "copyright_author": "Fiscal Coder"
   },
   "bio_12": "But if there's one thing that defines me: I never cease to learn, build, and chase new adventures.",
   "bio_blog_purpose": "This blog is my platform where I document and share my knowledge and experiences with others.",

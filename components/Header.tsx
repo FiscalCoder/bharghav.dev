@@ -1,31 +1,26 @@
 import clsx from 'clsx'
 import { useTranslation } from 'next-i18next'
-import NextImage from 'next/image'
 import { useRouter } from 'next/router'
 import { headerNavLinks } from '~/data/headerNavLinks'
 import { AnalyticsLink } from './AnalyticsLink'
-import { LanguageSwitcher } from './LanguageSwitcher'
 import { Link } from './Link'
 import { MobileNavToggle } from './MobileNavToggle'
 import { ThemeSwitcher } from './ThemeSwitcher'
-
-export function Header({ navShow, onToggleNav }: { onToggleNav: () => void; navShow: boolean }) {
+import BrandLogo from './BrandLogo'
+export function Header({
+  navShow,
+  onToggleNav,
+}: Readonly<{ onToggleNav: () => void; navShow: boolean }>) {
   let { t } = useTranslation('common')
   let router = useRouter()
 
   return (
     <nav className="supports-backdrop-blur:bg-white/95 sticky top-0 z-50 overflow-hidden bg-white/75 py-3 backdrop-blur dark:bg-dark/75">
       <div className="mx-auto flex max-w-3xl items-center justify-between px-3 xl:max-w-5xl xl:px-0">
-        <Link href="/" aria-label="Bharghav's Blog">
+        <Link href="/" aria-label="Fiscal Coder">
           <div className="flex items-center justify-between" data-umami-event="logo">
-            <div className="mr-3 flex items-center justify-center">
-              <NextImage
-                src="/static/images/logo.jpeg"
-                alt="Bharghav's Blog logo"
-                width={45}
-                height={45}
-                className="rounded-full"
-              />
+            <div className="mr-3 mb-0 flex items-center justify-center w-32 h-16">
+              <BrandLogo />
             </div>
           </div>
         </Link>
@@ -50,7 +45,6 @@ export function Header({ navShow, onToggleNav }: { onToggleNav: () => void; navS
           <div className="flex items-center gap-1">
             <AnalyticsLink />
             <ThemeSwitcher />
-            {/* <LanguageSwitcher /> */}
             <MobileNavToggle navShow={navShow} onToggleNav={onToggleNav} />
           </div>
         </div>
