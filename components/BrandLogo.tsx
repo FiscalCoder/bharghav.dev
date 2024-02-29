@@ -9,10 +9,15 @@ export function Logo() {
   let { theme } = useTheme()
 
   useEffect(() => {
-    if (theme === 'dark') {
-      setLogoSrc(darkLogoSrc)
-    } else if (theme === 'light') {
-      setLogoSrc(lightLogoSrc)
+    if (theme !== null) {
+      if (theme === 'system') {
+        const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+        setLogoSrc(isDarkMode ? darkLogoSrc : lightLogoSrc)
+      } else if (theme === 'dark') {
+        setLogoSrc(darkLogoSrc)
+      } else if (theme === 'light') {
+        setLogoSrc(lightLogoSrc)
+      }
     }
   }, [theme])
 
