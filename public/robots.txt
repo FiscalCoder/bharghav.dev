@@ -1,0 +1,29 @@
+User-agent: *
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /cgi-bin/
+Disallow: /?*
+Disallow: /*/?*
+
+User-agent: Googlebot
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /cgi-bin/
+Disallow: /?*
+Disallow: /*/?*
+
+User-agent: Bingbot
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /cgi-bin/
+Disallow: /?*
+Disallow: /*/?*
+
+User-agent: Slurp
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /cgi-bin/
+Disallow: /?*
+Disallow: /*/?*
+
+Sitemap: https://www.bharghav.dev/sitemap.xml
