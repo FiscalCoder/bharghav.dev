@@ -170,6 +170,35 @@ collections:
           - {label: "Tag", name: "tag", widget: "hidden", fields: [
               {label: "No Tags Found", name: "no_tags_found", widget: "hidden"},
             ]}
+
+  - name: "resume"
+    label: "Resume (MDX)"
+    folder: "data/en/authors"
+    create: true
+    slug: "{{slug}}"
+    extension: mdx
+    format: "frontmatter"
+    fields:
+      - {label: "Layout", name: "layout", widget: "string"}
+      - {label: "Avatar", name: "avatar", widget: "string"}
+      - {label: "Occupation", name: "occupation", widget: "string"}
+      - {label: "Email", name: "email", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+  
+  - name: "default"
+    label: "Default (MDX)"
+    folder: "data/en/authors"
+    create: true
+    slug: "{{slug}}"
+    extension: mdx
+    format: "frontmatter"
+    fields:
+      - {label: "Layout", name: "layout", widget: "string"}
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Avatar", name: "avatar", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"  }
+
+
     
     # - name: "authors-md"
     #   label: "Authors (MD)"
